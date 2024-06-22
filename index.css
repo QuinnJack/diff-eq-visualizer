@@ -1,0 +1,208 @@
+body {
+  margin: 0px;
+  padding: 0px;
+  font-family: sans-serif;
+  overflow: hidden;
+  overscroll-behavior: none;
+}
+
+canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+img {
+  padding: 5px;
+}
+
+.tooltip {
+  width: 42px;
+  height: 42px;
+}
+
+.tooltip ul {
+  visibility: hidden;
+  z-index: 1;
+  opacity: 0;
+  transition: opacity 0.3s;
+  position: absolute;
+  top: -10px;
+  left: 50px;
+}
+
+.tooltip:hover ul {
+  visibility: visible;
+  color: rgba(255, 255, 255, 0.8);
+  opacity: 0.5;
+}
+
+input {
+  background: transparent;
+  border-color: rgba(255, 255, 255, 0.1);
+  border-radius: 1px;
+  color: rgba(255, 255, 255, 0.8);
+  display: inline-block;
+}
+.contain-inputs {
+  position: relative;
+  color: rgba(255, 255, 255, 0.8);
+
+  margin: 20px;
+  padding: 5px;
+  margin-left: 1.5rem;
+  width: 15%;
+  height: 35%;
+  background-color: rgba(0, 0, 0, 0);
+  z-index: 1; /* Ensure the inputs are above the sketch */
+  overflow: hidden; /* To contain the gradient blur */
+  backdrop-filter: blur(1.5px);
+  -webkit-backdrop-filter: blur(1.5px); /* Safari */
+  border-radius: 5px;
+}
+
+.gradient-blur {
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  pointer-events: none;
+}
+
+.gradient-blur > div {
+  position: absolute;
+  inset: 0;
+}
+
+.gradient-blur::before,
+.gradient-blur::after,
+.gradient-blur > div:nth-of-type(1),
+.gradient-blur > div:nth-of-type(2),
+.gradient-blur > div:nth-of-type(3),
+.gradient-blur > div:nth-of-type(4),
+.gradient-blur > div:nth-of-type(5),
+.gradient-blur > div:nth-of-type(6) {
+  content: "";
+}
+
+.gradient-blur::before {
+  z-index: 1;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px); /* Safari */
+  mask: radial-gradient(circle, transparent 0%, black 15%, transparent 30%);
+}
+
+.gradient-blur > div:nth-of-type(1) {
+  z-index: 2;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px); /* Safari */
+  mask: radial-gradient(circle, transparent 15%, black 30%, transparent 45%);
+}
+
+.gradient-blur > div:nth-of-type(2) {
+  z-index: 3;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(1-px); /* Safari */
+  mask: radial-gradient(circle, transparent 30%, black 45%, transparent 60%);
+}
+
+.gradient-blur > div:nth-of-type(3) {
+  z-index: 4;
+  backdrop-filter: blur(30px);
+  -webkit-backdrop-filter: blur(30px); /* Safari */
+  mask: radial-gradient(circle, transparent 45%, black 60%, transparent 75%);
+}
+
+.gradient-blur > div:nth-of-type(4) {
+  z-index: 5;
+  backdrop-filter: blur(32px);
+  -webkit-backdrop-filter: blur(32px); /* Safari */
+  mask: radial-gradient(circle, transparent 60%, black 75%, transparent 90%);
+}
+
+.gradient-blur > div:nth-of-type(5) {
+  z-index: 6;
+  backdrop-filter: blur(50px);
+  -webkit-backdrop-filter: blur(50px); /* Safari */
+  mask: radial-gradient(circle, transparent 75%, black 90%, transparent 100%);
+}
+
+.gradient-blur::after {
+  z-index: 7;
+  backdrop-filter: blur(100px);
+  -webkit-backdrop-filter: blur(100px); /* Safari */
+  mask: radial-gradient(circle, transparent 90%, black 100%);
+}
+p {
+  display: inline-block;
+  color: aliceblue;
+}
+
+button {
+  background-color: rgba(255, 0, 0, 1); /* Opaque red background */
+  color: rgba(255, 255, 255, 0.8); /* White text with 80% opacity */
+  border-radius: 10%;
+  appearance: button;
+  background-color: rgba(0, 0, 0, 0); /* Fully transparent background */
+  background-image: none;
+  border: 0px solid #000;
+  border-radius: 4px;
+  box-shadow: rgba(255, 255, 255, 0.5) 4px 4px 0 0,
+    /* White box shadow with 50% opacity */ rgba(255, 255, 255, 0.5) 4px 4px 0
+      1px; /* Second white box shadow with 50% opacity */
+  box-sizing: border-box;
+  color: rgba(255, 255, 255, 0.8); /* White text with 80% opacity */
+  cursor: pointer;
+  display: inline-block;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  margin: 0 5px 10px 0;
+  overflow: visible;
+  text-align: center;
+  text-transform: none;
+  touch-action: manipulation;
+  user-select: none;
+  -webkit-user-select: none;
+  vertical-align: middle;
+  white-space: nowrap;
+}
+
+.button:focus {
+  transform: scale(0.9); /* Scale button down on hover */
+}
+
+.button:hover {
+  transform: scale(0.9); /* Scale button down on hover */
+}
+
+.button:active {
+  transform: scale(0.9); /* Scale button down on hover */
+}
+
+/* CSS */
+
+.slider {
+  -webkit-appearance: none;
+  width: 75%;
+  height: 10px;
+  border-radius: 5px;
+  background: rgba(50, 50, 50, 0.5);
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: 0.2s;
+  transition: opacity 0.2s;
+  margin-bottom: 10px;
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px); /* Safari */
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: rgb(66, 139, 199);
+  cursor: pointer;
+}

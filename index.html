@@ -1,0 +1,48 @@
+<html>
+  <head>
+    <script src="bin/p5.min.js"></script>
+    <link rel="stylesheet" href="index.css" type="text/css" />
+    <link rel="shortcut icon" href="bin/rb_icon.ico" />
+    <title>Diff Eq Visualizer</title>
+  </head>
+  <body>
+    <div id="sketch-holder"></div>
+
+    <div class="contain-inputs">
+      <div class="gradient-blur">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+      <span>
+        <p>dx/dt:</p>
+        <input type="text" id="dx" value="sin(y)" />
+      </span>
+      <span>
+        <p>dy/dt:</p>
+        <input type="text" id="dy" value="sin(x)*cos(t)" />
+      </span>
+      <div class="slidecontainer">
+        <span>
+          <p>Particle Density:</p>
+          <input
+            type="range"
+            min="100"
+            max="999"
+            value="400"
+            class="slider"
+            id="stars"
+          />
+        </span>
+      </div>
+      <button onclick="updateFunction()">Generate</button>
+      <button onclick="updateRandom()">Randomize</button>
+      <p>Zoom Scale:</p>
+      <p id="zoom">0.5</p>
+    </div>
+
+    <script src="diff_eq.js"></script>
+  </body>
+</html>
